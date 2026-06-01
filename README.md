@@ -2,13 +2,8 @@
 
 A modern, responsive personal portfolio website built with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools — just clean, fast, production-ready code.
 
-🔗 **Live:** [your-domain.com](https://umair-rai.github.io/) *(update with your link)*
+🔗 **Live:** [Portfolio](https://umair-rai.github.io/) *(update with your link)*
 
----
-
-## Preview
-
-![Portfolio Preview](Image.png)
 
 ---
 

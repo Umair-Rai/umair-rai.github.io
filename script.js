@@ -1,6 +1,23 @@
-// ========================================
-// NAVIGATION & SCROLL EFFECTS
-// ========================================
+// =============================================
+// THEME TOGGLE
+// =============================================
+
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+});
+
+// =============================================
+// NAVIGATION
+// =============================================
 
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
@@ -8,231 +25,138 @@ const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 const scrollProgress = document.getElementById('scrollProgress');
 
-// Navbar scroll effect
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    // Navbar scroll state
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
 
-    // Update scroll progress
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    scrollProgress.style.width = scrolled + '%';
-});
+    // Scroll progress bar
+    const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    scrollProgress.style.width = (window.scrollY / total * 100) + '%';
 
-// Mobile menu toggle
+    // Active nav link highlight
+    highlightActiveSection();
+}, { passive: true });
+
+// Mobile menu
 navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-
-    // Animate hamburger icon
+    const isOpen = navMenu.classList.toggle('open');
     const spans = navToggle.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    if (isOpen) {
+        spans[0].style.cssText = 'transform: rotate(45deg) translate(5px, 5px)';
+        spans[1].style.cssText = 'opacity: 0; transform: scaleX(0)';
+        spans[2].style.cssText = 'transform: rotate(-45deg) translate(5px, -5px)';
     } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        spans.forEach(s => s.style.cssText = '');
     }
 });
 
-// Close mobile menu when clicking a link
+// Close menu on link click
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const spans = navToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        navMenu.classList.remove('open');
+        navToggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
     });
 });
 
-// Smooth scroll for navigation links
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        navToggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
+    }
+});
+
+// Keyboard: Escape closes menu
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        navToggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
+        navToggle.focus();
+    }
+});
+
+// Smooth scroll (accounts for fixed navbar height)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            e.preventDefault();
+            const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 68;
+            window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
         }
     });
 });
 
-// ========================================
-// TYPING EFFECT
-// ========================================
+function highlightActiveSection() {
+    const scrollY = window.scrollY + 120;
+    document.querySelectorAll('section[id]').forEach(section => {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        const id = section.id;
+        const link = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (link) {
+            link.classList.toggle('active', scrollY >= top && scrollY < bottom);
+        }
+    });
+}
 
-const typingText = document.getElementById('typingText');
+// =============================================
+// TYPING EFFECT
+// =============================================
+
+const typingEl = document.getElementById('typingText');
 const phrases = [
-    'AI & Full-Stack Developer',
-    'Machine Learning Engineer',
-    'Deep Learning Enthusiast',
-    'MERN Stack Developer',
-    'Problem Solver'
+    'intelligent AI systems.',
+    'scalable web platforms.',
+    'deep learning models.',
+    'full-stack applications.',
+    'computer vision tools.',
+    'data-driven products.',
 ];
 
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
+let pIdx = 0, cIdx = 0, deleting = false;
 
-function typeEffect() {
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
+function type() {
+    const phrase = phrases[pIdx];
+    if (deleting) {
+        typingEl.textContent = phrase.slice(0, --cIdx);
     } else {
-        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
+        typingEl.textContent = phrase.slice(0, ++cIdx);
     }
 
-    if (!isDeleting && charIndex === currentPhrase.length) {
-        // Pause at end of phrase
-        typingSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typingSpeed = 500;
-    }
+    let delay = deleting ? 40 : 90;
+    if (!deleting && cIdx === phrase.length) { delay = 2200; deleting = true; }
+    else if (deleting && cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; delay = 400; }
 
-    setTimeout(typeEffect, typingSpeed);
+    setTimeout(type, delay);
 }
 
-// Start typing effect when page loads
-window.addEventListener('load', () => {
-    setTimeout(typeEffect, 1000);
-});
+window.addEventListener('load', () => setTimeout(type, 800));
 
-// ========================================
-// SCROLL REVEAL ANIMATIONS
-// ========================================
+// =============================================
+// SCROLL REVEAL
+// =============================================
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+const revealObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+);
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            // Optional: stop observing after reveal
-            // observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el));
 
-// Observe all elements with scroll-reveal class
-document.querySelectorAll('.scroll-reveal').forEach(element => {
-    observer.observe(element);
-});
+// =============================================
+// FOOTER YEAR
+// =============================================
 
-// ========================================
-// DYNAMIC YEAR IN FOOTER
-// ========================================
-
-const footerText = document.querySelector('.footer-text');
-if (footerText) {
-    const currentYear = new Date().getFullYear();
-    footerText.textContent = `© ${currentYear} Umair Akram. Built with passion for AI and innovation.`;
+const footerYear = document.getElementById('footerYear');
+if (footerYear) {
+    footerYear.textContent = `© ${new Date().getFullYear()} Umair Akram. Built with passion for AI & innovation.`;
 }
 
-// ========================================
-// PERFORMANCE OPTIMIZATIONS
-// ========================================
-
-// Debounce function for scroll events
-function debounce(func, wait = 10, immediate = true) {
-    let timeout;
-    return function () {
-        const context = this;
-        const args = arguments;
-        const later = function () {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// ========================================
-// ACTIVE SECTION HIGHLIGHTING
-// ========================================
-
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNavigation() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) {
-                navLink.classList.add('active');
-            }
-        }
-    });
-}
-
-window.addEventListener('scroll', debounce(highlightNavigation));
-
-// ========================================
-// PRELOAD CRITICAL RESOURCES
-// ========================================
-
-// Preload Google Fonts
-const fontLink = document.createElement('link');
-fontLink.rel = 'preload';
-fontLink.as = 'style';
-fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap';
-document.head.appendChild(fontLink);
-
-// ========================================
-// ACCESSIBILITY ENHANCEMENTS
-// ========================================
-
-// Add keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        const spans = navToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    }
-});
-
-// Focus management for mobile menu
-navToggle.addEventListener('click', () => {
-    if (navMenu.classList.contains('active')) {
-        navLinks[0]?.focus();
-    }
-});
-
-// ========================================
+// =============================================
 // CONSOLE EASTER EGG
-// ========================================
+// =============================================
 
-console.log('%c👋 Hello, Developer!', 'color: #8b5cf6; font-size: 20px; font-weight: bold;');
-console.log('%cInterested in the code? Check out my GitHub: https://github.com/umair-rai', 'color: #6366f1; font-size: 14px;');
-console.log('%cLet\'s build something amazing together! 🚀', 'color: #10b981; font-size: 14px;');
+console.log('%c< UA />', 'color: #00c9a7; font-size: 24px; font-weight: 900; font-family: monospace;');
+console.log('%cHey! Curious about the code? Check out: https://github.com/umair-rai', 'color: #00b4d8; font-size: 13px;');
+console.log('%cLet\'s build something amazing together 🚀', 'color: #8b949e; font-size: 13px;');

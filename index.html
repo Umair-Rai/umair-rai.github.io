@@ -1,85 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Umair Akram - Computer Science Graduate specializing in AI, Machine Learning, and Full-Stack Development. Explore my portfolio of AI-powered applications and web development projects.">
   <meta name="keywords" content="AI Developer, Full-Stack Developer, Machine Learning, Deep Learning, MERN Stack, Computer Science">
   <meta name="author" content="Umair Akram">
-  
-  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Umair Akram - AI & Full-Stack Developer">
   <meta property="og:description" content="Computer Science Graduate specializing in AI, Machine Learning, and Full-Stack Development">
   <meta property="og:type" content="website">
-  
-  <title>Umair Akram - AI & Full-Stack Developer Portfolio</title>
-  
-  <!-- Google Fonts -->
+  <title>Umair Akram — AI & Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Scroll Progress Indicator -->
+
+  <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">UA</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>UA<span class="logo-bracket">/&gt;</span>
+      </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#projects" class="nav-link">Featured Projects</a></li>
-        <li><a href="#additional-projects" class="nav-link">More Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#more-projects" class="nav-link">More</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="toggle-track">
+            <span class="toggle-thumb">
+              <span class="toggle-sun">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </span>
+              <span class="toggle-moon">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              </span>
+            </span>
+          </span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-background"></div>
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
     <div class="container">
       <div class="hero-content">
-        <p class="hero-greeting">👋 Hello, I'm</p>
-        <h1 class="hero-title">Umair Akram</h1>
-        <p class="hero-subtitle">Computer Science Graduate</p>
-        <div class="hero-typing" id="typingText"></div>
-        <p class="hero-description">
-          Passionate about building intelligent, production-ready applications at the intersection of AI and modern web technologies. 
-          Transforming ideas into fully functional platforms with a focus on machine learning, deep learning, and scalable web systems.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            2+ Years Experience · Available for opportunities
+          </div>
+          <h1 class="hero-name">Umair <span class="name-accent">Akram</span></h1>
+          <div class="hero-roles">
+            <span class="role-tag">AI Developer</span>
+            <span class="role-divider">·</span>
+            <span class="role-tag">ML Engineer</span>
+            <span class="role-divider">·</span>
+            <span class="role-tag">Full-Stack Dev</span>
+          </div>
+          <div class="hero-typing-wrapper">
+            <span class="typing-prefix">I build </span>
+            <span class="hero-typing" id="typingText"></span>
+          </div>
+          <p class="hero-description">
+            Computer Science graduate passionate about building intelligent, production-ready applications at the intersection of AI and modern web technologies. Specializing in deep learning, computer vision, and scalable MERN stack systems.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              View My Work
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              Get In Touch
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="hero-social">
+            <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/umair-akram" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:umairakram@example.com" class="social-btn" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+          </div>
         </div>
-        <div class="hero-social">
-          <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="mailto:umair.akramcs@gmail.com" class="social-link" aria-label="Email">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
-          <a href="https://linkedin.com/in/umair-akram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
+        <div class="hero-visual">
+          <div class="profile-frame">
+            <div class="profile-glow"></div>
+            <img src="Image.png" alt="Umair Akram" class="profile-img">
+            <div class="profile-ring"></div>
+            <div class="floating-badge badge-ai">
+              <span>🧠</span> AI/ML
+            </div>
+            <div class="floating-badge badge-web">
+              <span>⚡</span> Full-Stack
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stat-pill">
+              <strong>2+</strong> Yrs Experience
+            </div>
+            <div class="stat-pill">
+              <strong>3+</strong> Projects Deployed
+            </div>
+            <div class="stat-pill">
+              <strong>MERN</strong> Stack
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section section-alt" id="experience">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">Career</span>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">2+ years building production AI products and full-stack web applications professionally</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Horrizon AI -->
+        <div class="timeline-item scroll-reveal">
+          <div class="timeline-marker">
+            <div class="timeline-dot active"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-company-logo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Data Science Developer</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Horrizon AI</span>
+                  <span class="company-type">Full-time</span>
+                  <span class="company-current">Current</span>
+                </div>
+                <div class="timeline-info">
+                  <span class="timeline-date">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Sep 2025 – Present · 9 mos
+                  </span>
+                  <span class="timeline-location">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Lahore, Pakistan · On-site
+                  </span>
+                </div>
+              </div>
+            </div>
+            <p class="timeline-summary">Building AI-powered web applications and data pipelines as part of the core engineering team.</p>
+            <div class="timeline-section">
+              <div class="timeline-section-title">What I work on</div>
+              <ul class="timeline-bullets">
+                <li>Develop full-stack features for AI products using React.js, Node.js, and MongoDB</li>
+                <li>Design and implement data labeling pipelines for ML model training</li>
+                <li>Integrate AI/ML models into production web applications</li>
+                <li>Collaborate with the AI team on prompt engineering and model evaluation</li>
+              </ul>
+            </div>
+            <div class="timeline-tags">
+              <span class="tag">Python</span>
+              <span class="tag">React.js</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Express</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">ML integrations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Softrick Solutions -->
+        <div class="timeline-item scroll-reveal">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-company-logo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+              </div>
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Web Developer</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Softrick Solutions</span>
+                  <span class="company-type">Full-time</span>
+                </div>
+                <div class="timeline-info">
+                  <span class="timeline-date">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Jan 2024 – Jul 2025 · 1 yr 7 mos
+                  </span>
+                  <span class="timeline-location">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Lahore, Pakistan · On-site
+                  </span>
+                </div>
+              </div>
+            </div>
+            <p class="timeline-summary">Designed, developed, and deployed responsive web applications using React.js, Node.js, and modern frameworks. Worked on both frontend and backend tasks across real-world client projects.</p>
+            <div class="timeline-section">
+              <div class="timeline-section-title">Key contributions</div>
+              <ul class="timeline-bullets">
+                <li>Built dynamic full-stack websites with React.js, Node.js, and MongoDB</li>
+                <li>Handled API integration, database management, and UI enhancements</li>
+                <li>Participated in code reviews, agile sprints, and cross-team collaboration</li>
+                <li>Worked with Git, REST APIs, and CMS platforms on tight deadlines</li>
+              </ul>
+            </div>
+            <div class="timeline-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Express</span>
+              <span class="tag">Git</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">CMS</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -87,219 +258,227 @@
   <!-- Featured Projects Section -->
   <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title scroll-reveal">Featured Projects</h2>
+      <div class="section-header scroll-reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Production-level applications combining AI intelligence with modern web engineering</p>
+      </div>
+
       <div class="projects-grid">
-        
-        <!-- FYP Project -->
-        <div class="glass-card project-card scroll-reveal">
-          <div class="project-header">
-            <div class="project-icon">🐾</div>
-            <div>
+
+        <!-- FYP: AI Pet Breed Recognition -->
+        <article class="project-card scroll-reveal">
+          <div class="project-img-wrap">
+            <img src="Image.png" alt="AI Pet Breed Recognition Platform" class="project-img">
+            <div class="project-img-overlay">
+              <span class="project-category-badge">Final Year Project</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
               <h3 class="project-title">AI Pet Breed Recognition Platform</h3>
-              <p class="project-subtitle">Final Year Project</p>
+              <p class="project-desc">Comprehensive AI-powered platform for automatic pet breed identification (cats & dogs) with an integrated digital ecosystem for pet-related services, e-commerce, and breeding connections.</p>
+            </div>
+            <ul class="project-highlights">
+              <li>AI breed recognition using deep learning CNNs</li>
+              <li>Integrated e-commerce for pet products</li>
+              <li>Breeding service connecting breeders & customers</li>
+              <li>Recommendation system based on ratings & similarity</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">CNNs</span>
+                <span class="tag">React.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+              </div>
             </div>
           </div>
-          <p class="project-description">
-            Comprehensive AI-powered platform for automatic pet breed identification (cats & dogs) with an integrated digital ecosystem for pet-related services.
-          </p>
-          <ul class="project-features">
-            <li>AI-based breed recognition using Deep Learning</li>
-            <li>Integrated e-commerce for pet products</li>
-            <li>Breeding service connecting breeders & customers</li>
-            <li>Recommendation system based on ratings & similarity</li>
-            <li>Admin panel for management</li>
-          </ul>
-          <div class="project-tech">
-            <span class="tag">Python</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">CNNs</span>
-            <span class="tag">React.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">MongoDB</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-          </div>
-        </div>
+        </article>
 
-        <!-- WeekViz Project -->
-        <div class="glass-card project-card scroll-reveal">
-          <div class="project-header">
-            <div class="project-icon">📊</div>
-            <div>
+        <!-- WeekViz -->
+        <article class="project-card scroll-reveal">
+          <div class="project-img-wrap">
+            <img src="Image.png" alt="WeekViz Analytics Platform" class="project-img">
+            <div class="project-img-overlay">
+              <span class="project-category-badge">Live Product</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
               <h3 class="project-title">WeekViz</h3>
-              <p class="project-subtitle">Business Analytics Platform</p>
+              <p class="project-desc">Modern business analytics platform helping companies visualize data, monitor performance, and gain actionable insights through interactive dashboards. Deployed on VPS in production.</p>
+            </div>
+            <ul class="project-highlights">
+              <li>Interactive data visualizations & dashboards</li>
+              <li>Performance tracking and reporting</li>
+              <li>Secure authentication & admin system</li>
+              <li>Production VPS deployment</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="tag">React (Vite)</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="https://app.weekviz.com" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+              </div>
             </div>
           </div>
-          <p class="project-description">
-            Modern analytics web application helping businesses visualize data, monitor performance, and gain actionable insights through interactive dashboards.
-          </p>
-          <ul class="project-features">
-            <li>Interactive data visualizations</li>
-            <li>Performance tracking and reporting</li>
-            <li>Secure authentication system</li>
-            <li>Scalable admin dashboard</li>
-            <li>Production-level VPS deployment</li>
-          </ul>
-          <div class="project-tech">
-            <span class="tag">React (Vite)</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">REST APIs</span>
-          </div>
-          <div class="project-links">
-            <a href="https://app.weekviz.com" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
-            <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-          </div>
-        </div>
+        </article>
 
-        <!-- Electron Store Project -->
-        <div class="glass-card project-card scroll-reveal">
-          <div class="project-header">
-            <div class="project-icon">🛍️</div>
-            <div>
-              <h3 class="project-title">Electron Store</h3>
-              <p class="project-subtitle">Multilingual E-Commerce Platform</p>
+        <!-- Electron Store -->
+        <article class="project-card scroll-reveal">
+          <div class="project-img-wrap">
+            <img src="Image.png" alt="Electron Store E-Commerce" class="project-img">
+            <div class="project-img-overlay">
+              <span class="project-category-badge">E-Commerce</span>
             </div>
           </div>
-          <p class="project-description">
-            Bilingual (English & Arabic) product showcase and inquiry-based e-commerce platform focusing on product discovery and direct customer inquiries.
-          </p>
-          <ul class="project-features">
-            <li>Multilingual support (English & Arabic)</li>
-            <li>Product listings with variations</li>
-            <li>Inquiry-based cart system</li>
-            <li>Email & dashboard notifications</li>
-            <li>User authentication & admin panel</li>
-          </ul>
-          <div class="project-tech">
-            <span class="tag">React.js</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
+          <div class="project-body">
+            <div class="project-top">
+              <h3 class="project-title">Electron Store</h3>
+              <p class="project-desc">Bilingual (English & Arabic) product showcase and inquiry-based e-commerce platform focusing on product discovery and direct customer engagement with full RTL support.</p>
+            </div>
+            <ul class="project-highlights">
+              <li>Full bilingual support (English & Arabic / RTL)</li>
+              <li>Product listings with variations</li>
+              <li>Inquiry-based cart & email notifications</li>
+              <li>User authentication & admin panel</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-          </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <!-- Additional Projects Section -->
-  <section class="section additional-projects" id="additional-projects">
+  <!-- More Projects Section -->
+  <section class="section section-alt" id="more-projects">
     <div class="container">
-      <h2 class="section-title scroll-reveal">Additional Projects</h2>
-      <div class="projects-categories">
-        
-        <!-- Deep Learning Category -->
-        <div class="category-card scroll-reveal">
-          <div class="category-header">
-            <div class="category-icon">🧠</div>
-            <h3 class="category-title">Deep Learning</h3>
+      <div class="section-header scroll-reveal">
+        <span class="section-label">Academic & Side Work</span>
+        <h2 class="section-title">More Projects</h2>
+        <p class="section-subtitle">Research, coursework, and exploratory builds across AI, systems, and desktop software</p>
+      </div>
+
+      <div class="more-grid">
+
+        <div class="more-card scroll-reveal">
+          <div class="more-card-header">
+            <div class="more-card-icon">🧠</div>
+            <h3 class="more-card-title">Deep Learning</h3>
           </div>
-          <ul class="category-projects">
-            <li class="category-project">
-              <div class="category-project-title">Image Classification - ResNet-18</div>
-              <p class="category-project-desc">Implemented transfer learning using ResNet-18, fine-tuned for custom datasets with comprehensive evaluation metrics.</p>
-              <div class="category-project-tech">
-                <span class="tag">PyTorch</span>
-                <span class="tag">Transfer Learning</span>
-                <span class="tag">CNNs</span>
+          <ul class="more-list">
+            <li class="more-item">
+              <div class="more-item-name">Image Classification — ResNet-18</div>
+              <p class="more-item-desc">Transfer learning using ResNet-18, fine-tuned for custom datasets with comprehensive evaluation metrics.</p>
+              <div class="more-tags">
+                <span class="tag">PyTorch</span><span class="tag">Transfer Learning</span><span class="tag">CNNs</span>
               </div>
             </li>
-            <li class="category-project">
-              <div class="category-project-title">Vision Transformer (Swin)</div>
-              <p class="category-project-desc">Implemented Swin Transformer for image classification, comparing CNN-based and transformer-based approaches.</p>
-              <div class="category-project-tech">
-                <span class="tag">Transformers</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">Computer Vision</span>
+            <li class="more-item">
+              <div class="more-item-name">Vision Transformer (Swin)</div>
+              <p class="more-item-desc">Implemented Swin Transformer for image classification, benchmarking against CNN-based approaches.</p>
+              <div class="more-tags">
+                <span class="tag">Transformers</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Machine Learning Category -->
-        <div class="category-card scroll-reveal">
-          <div class="category-header">
-            <div class="category-icon">🤖</div>
-            <h3 class="category-title">Machine Learning</h3>
+        <div class="more-card scroll-reveal">
+          <div class="more-card-header">
+            <div class="more-card-icon">🤖</div>
+            <h3 class="more-card-title">Machine Learning</h3>
           </div>
-          <ul class="category-projects">
-            <li class="category-project">
-              <div class="category-project-title">Supervised Learning Models</div>
-              <p class="category-project-desc">Classification and regression models with comprehensive data preprocessing, feature engineering, and evaluation.</p>
-              <div class="category-project-tech">
-                <span class="tag">Scikit-learn</span>
-                <span class="tag">Python</span>
-                <span class="tag">Pandas</span>
+          <ul class="more-list">
+            <li class="more-item">
+              <div class="more-item-name">Supervised Learning Models</div>
+              <p class="more-item-desc">Classification and regression models with data preprocessing, feature engineering, and evaluation pipelines.</p>
+              <div class="more-tags">
+                <span class="tag">Scikit-learn</span><span class="tag">Python</span><span class="tag">Pandas</span>
               </div>
             </li>
-            <li class="category-project">
-              <div class="category-project-title">Prediction Systems</div>
-              <p class="category-project-desc">Analytical models for various prediction tasks using machine learning algorithms.</p>
-              <div class="category-project-tech">
-                <span class="tag">ML Algorithms</span>
-                <span class="tag">Data Analysis</span>
+            <li class="more-item">
+              <div class="more-item-name">Prediction Systems</div>
+              <p class="more-item-desc">Analytical models for various prediction tasks using classical and ensemble ML algorithms.</p>
+              <div class="more-tags">
+                <span class="tag">ML Algorithms</span><span class="tag">Data Analysis</span>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Compiler Construction Category -->
-        <div class="category-card scroll-reveal">
-          <div class="category-header">
-            <div class="category-icon">🧩</div>
-            <h3 class="category-title">Compiler Construction</h3>
+        <div class="more-card scroll-reveal">
+          <div class="more-card-header">
+            <div class="more-card-icon">🧩</div>
+            <h3 class="more-card-title">Compiler Construction</h3>
           </div>
-          <ul class="category-projects">
-            <li class="category-project">
-              <div class="category-project-title">Compiler Components</div>
-              <p class="category-project-desc">Designed and implemented compiler components including lexical analysis, syntax analysis, parsing techniques, and symbol table management.</p>
-              <div class="category-project-tech">
-                <span class="tag">C++</span>
-                <span class="tag">Parsing</span>
-                <span class="tag">System Design</span>
+          <ul class="more-list">
+            <li class="more-item">
+              <div class="more-item-name">Compiler Components</div>
+              <p class="more-item-desc">Designed and implemented compiler pipeline including lexical analysis, syntax analysis, parsing techniques, and symbol table management.</p>
+              <div class="more-tags">
+                <span class="tag">C++</span><span class="tag">Parsing</span><span class="tag">System Design</span>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Desktop Applications Category -->
-        <div class="category-card scroll-reveal">
-          <div class="category-header">
-            <div class="category-icon">💻</div>
-            <h3 class="category-title">Desktop Applications</h3>
+        <div class="more-card scroll-reveal">
+          <div class="more-card-header">
+            <div class="more-card-icon">💻</div>
+            <h3 class="more-card-title">Desktop Applications</h3>
           </div>
-          <ul class="category-projects">
-            <li class="category-project">
-              <div class="category-project-title">Hotel Management System</div>
-              <p class="category-project-desc">Desktop-based system managing rooms, bookings, customers, and billing with file handling.</p>
-              <div class="category-project-tech">
-                <span class="tag">C++</span>
-                <span class="tag">File Handling</span>
-              </div>
+          <ul class="more-list">
+            <li class="more-item">
+              <div class="more-item-name">Hotel Management System</div>
+              <p class="more-item-desc">Desktop system managing rooms, bookings, customers, and billing with file handling.</p>
+              <div class="more-tags"><span class="tag">C++</span><span class="tag">File Handling</span></div>
             </li>
-            <li class="category-project">
-              <div class="category-project-title">E-Commerce Management (Daraz-like)</div>
-              <p class="category-project-desc">GUI-based application for product management, customer handling, and order processing.</p>
-              <div class="category-project-tech">
-                <span class="tag">C# WinForms</span>
-                <span class="tag">Event-Driven</span>
-              </div>
+            <li class="more-item">
+              <div class="more-item-name">E-Commerce Management (Daraz-like)</div>
+              <p class="more-item-desc">GUI-based app for product management, customer handling, and order processing.</p>
+              <div class="more-tags"><span class="tag">C# WinForms</span><span class="tag">Event-Driven</span></div>
             </li>
-            <li class="category-project">
-              <div class="category-project-title">Library Management System</div>
-              <p class="category-project-desc">CRUD system managing books, members, and issue/return records with structured programming.</p>
-              <div class="category-project-tech">
-                <span class="tag">C# WinForms</span>
-                <span class="tag">CRUD</span>
-              </div>
+            <li class="more-item">
+              <div class="more-item-name">Library Management System</div>
+              <p class="more-item-desc">CRUD system managing books, members, and issue/return records.</p>
+              <div class="more-tags"><span class="tag">C# WinForms</span><span class="tag">CRUD</span></div>
             </li>
           </ul>
         </div>
@@ -311,57 +490,67 @@
   <!-- Skills Section -->
   <section class="section" id="skills">
     <div class="container">
-      <h2 class="section-title scroll-reveal">Skills & Expertise</h2>
-      <div class="skills-container">
-        
-        <!-- AI/ML Skills -->
-        <div class="skill-category scroll-reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-category-icon">🧠</span>
-            AI & Machine Learning
-          </h3>
-          <ul class="skill-list">
-            <li class="skill-item">Machine Learning & Deep Learning</li>
-            <li class="skill-item">CNNs & Transfer Learning</li>
-            <li class="skill-item">PyTorch & TensorFlow</li>
-            <li class="skill-item">ResNet-18, Swin Transformer</li>
-            <li class="skill-item">Model Training & Evaluation</li>
-            <li class="skill-item">Computer Vision</li>
-            <li class="skill-item">Scikit-learn & Pandas</li>
-          </ul>
+      <div class="section-header scroll-reveal">
+        <span class="section-label">Expertise</span>
+        <h2 class="section-title">Skills & Tech Stack</h2>
+        <p class="section-subtitle">A broad technical foundation from AI research to production deployment</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card scroll-reveal">
+          <div class="skill-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="skill-card-title">AI & Machine Learning</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Machine Learning</span>
+            <span class="skill-pill">Deep Learning</span>
+            <span class="skill-pill">CNNs</span>
+            <span class="skill-pill">Transfer Learning</span>
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">TensorFlow</span>
+            <span class="skill-pill">ResNet-18</span>
+            <span class="skill-pill">Swin Transformer</span>
+            <span class="skill-pill">Computer Vision</span>
+            <span class="skill-pill">Scikit-learn</span>
+            <span class="skill-pill">Pandas</span>
+          </div>
         </div>
 
-        <!-- Full-Stack Skills -->
-        <div class="skill-category scroll-reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-category-icon">💻</span>
-            Full-Stack Development
-          </h3>
-          <ul class="skill-list">
-            <li class="skill-item">MERN Stack (MongoDB, Express, React, Node.js)</li>
-            <li class="skill-item">React.js & Next.js</li>
-            <li class="skill-item">Tailwind CSS & Modern UI</li>
-            <li class="skill-item">REST APIs & Backend Development</li>
-            <li class="skill-item">Database Design (MongoDB)</li>
-            <li class="skill-item">Authentication & Authorization</li>
-            <li class="skill-item">VPS Deployment & DevOps</li>
-          </ul>
+        <div class="skill-card scroll-reveal">
+          <div class="skill-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="skill-card-title">Full-Stack Development</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">React.js</span>
+            <span class="skill-pill">Next.js</span>
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">MERN Stack</span>
+            <span class="skill-pill">Authentication</span>
+            <span class="skill-pill">VPS Deployment</span>
+          </div>
         </div>
 
-        <!-- Academic & Other Skills -->
-        <div class="skill-category scroll-reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-category-icon">🎓</span>
-            Academic & Other
-          </h3>
-          <ul class="skill-list">
-            <li class="skill-item">Compiler Construction (C++)</li>
-            <li class="skill-item">Desktop Applications (WinForms, C++)</li>
-            <li class="skill-item">Data Structures & Algorithms</li>
-            <li class="skill-item">System Design & Architecture</li>
-            <li class="skill-item">Git & Version Control</li>
-            <li class="skill-item">Problem Solving & Debugging</li>
-          </ul>
+        <div class="skill-card scroll-reveal">
+          <div class="skill-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="skill-card-title">Systems & Academic</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">C++</span>
+            <span class="skill-pill">C# WinForms</span>
+            <span class="skill-pill">Compiler Construction</span>
+            <span class="skill-pill">Data Structures</span>
+            <span class="skill-pill">Algorithms</span>
+            <span class="skill-pill">System Design</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Problem Solving</span>
+          </div>
         </div>
 
       </div>
@@ -369,28 +558,50 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section contact" id="contact">
+  <section class="section contact-section" id="contact">
     <div class="container">
-      <div class="contact-content">
-        <h2 class="section-title scroll-reveal">Get In Touch</h2>
-        <p class="contact-description scroll-reveal">
-          I'm actively seeking remote and international opportunities in AI, Data Science, and Full-Stack Development. 
-          Let's connect and build something amazing together!
-        </p>
-        <div class="contact-links scroll-reveal">
-          <a href="mailto:umair.akramcs@gmail.com" class="contact-link">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            umair.akramcs@gmail.com
+      <div class="contact-wrap scroll-reveal">
+        <div class="contact-left">
+          <span class="section-label">Let's Talk</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="contact-text">
+            I'm actively seeking remote and international opportunities in AI, Data Science, and Full-Stack Development. Whether it's a full-time role, freelance project, or research collaboration — let's build something incredible together.
+          </p>
+          <a href="mailto:umairakram@example.com" class="btn btn-primary contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send Me an Email
           </a>
-          <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            github.com/umair-rai
-          </a>
+        </div>
+        <div class="contact-right">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <a href="mailto:umairakram@example.com" class="contact-item-value">umairakram@example.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">GitHub</div>
+                <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/umair-rai</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">LinkedIn</div>
+                <a href="https://linkedin.com/in/umair-akram" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/umair-akram</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -399,12 +610,23 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">© 2025 Umair Akram. Built with passion for AI and innovation.</p>
+      <div class="footer-inner">
+        <a href="#home" class="nav-logo footer-logo">
+          <span class="logo-bracket">&lt;</span>UA<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-text" id="footerYear"></p>
+        <div class="footer-socials">
+          <a href="https://github.com/umair-rai" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/umair-akram" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
-

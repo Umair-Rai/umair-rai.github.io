@@ -6,12 +6,6 @@ A modern, responsive personal portfolio website built with vanilla HTML, CSS, an
 
 ---
 
-## Preview
-
-![Portfolio Preview](Image.png)
-
----
-
 ## Features
 
 - **Dark / Light mode** — toggle with smooth transition, persists via `localStorage`

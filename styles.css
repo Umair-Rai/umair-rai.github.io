@@ -3,25 +3,32 @@
    ============================================= */
 
 :root {
-  /* Accent: Teal-Cyan — rare in portfolios, loved by tech/AI recruiters */
-  --accent-1: #00c9a7;
-  --accent-2: #00b4d8;
-  --accent-grad: linear-gradient(135deg, #00c9a7 0%, #00b4d8 100%);
-  --accent-glow: rgba(0, 201, 167, 0.25);
+  /* Single accent: muted teal — desaturated enough to blend, distinct enough to lead */
+  --accent: #00b896;
+  --accent-dim: rgba(0, 184, 150, 0.12);
+  --accent-border: rgba(0, 184, 150, 0.28);
+  --accent-glow: rgba(0, 184, 150, 0.22);
 
   /* Dark Theme */
-  --bg-0: #080c10;
-  --bg-1: #0d1117;
-  --bg-2: #161b22;
-  --bg-3: #21262d;
-  --border: rgba(255,255,255,0.08);
-  --border-accent: rgba(0,201,167,0.3);
-  --text-1: #f0f6fc;
-  --text-2: #8b949e;
-  --text-3: #6e7681;
+  --bg-0: #090d12;
+  --bg-1: #0e1318;
+  --bg-2: #151b22;
+  --bg-3: #1e252e;
+  --border: rgba(255,255,255,0.07);
+  --border-accent: rgba(0, 184, 150, 0.28);
+  --text-1: #edf2f7;
+  --text-2: #8892a0;
+  --text-3: #5d6878;
 
-  --glass: rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.035);
+  --glass-border: rgba(255,255,255,0.07);
+
+  /* z-index scale */
+  --z-below: -1;
+  --z-base: 1;
+  --z-overlay: 10;
+  --z-nav: 100;
+  --z-progress: 200;
 
   --nav-h: 68px;
   --radius-sm: 6px;
@@ -30,10 +37,11 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
-  --shadow-accent: 0 8px 32px rgba(0,201,167,0.25);
+  /* Shadows tinted to match the dark bg hue */
+  --shadow-sm: 0 1px 3px rgba(4, 8, 14, 0.5);
+  --shadow-md: 0 4px 16px rgba(4, 8, 14, 0.6);
+  --shadow-lg: 0 12px 40px rgba(4, 8, 14, 0.7);
+  --shadow-accent: 0 8px 32px rgba(0, 184, 150, 0.22);
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --fast: 150ms;
@@ -42,21 +50,21 @@
 }
 
 [data-theme="light"] {
-  --bg-0: #f6f8fa;
+  --bg-0: #f5f7fa;
   --bg-1: #ffffff;
-  --bg-2: #f0f2f5;
-  --bg-3: #e6e9ed;
-  --border: rgba(0,0,0,0.08);
-  --border-accent: rgba(0,201,167,0.4);
+  --bg-2: #eef1f5;
+  --bg-3: #e4e8ee;
+  --border: rgba(0,0,0,0.07);
+  --border-accent: rgba(0, 184, 150, 0.35);
   --text-1: #0d1117;
   --text-2: #424a53;
   --text-3: #6e7681;
-  --glass: rgba(0,0,0,0.03);
-  --glass-border: rgba(0,0,0,0.07);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
-  --accent-glow: rgba(0,180,216,0.2);
+  --glass: rgba(0,0,0,0.025);
+  --glass-border: rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.13);
+  --accent-glow: rgba(0, 184, 150, 0.18);
 }
 
 /* =============================================
@@ -68,7 +76,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-0);
   color: var(--text-1);
   line-height: 1.6;
@@ -83,18 +91,53 @@ ul { list-style: none; }
 button { border: none; background: none; cursor: pointer; font-family: inherit; }
 
 /* =============================================
+   SKIP TO CONTENT
+   ============================================= */
+
+.skip-to-content {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  z-index: calc(var(--z-progress) + 1);
+  transition: top var(--fast);
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* =============================================
    SCROLL PROGRESS
    ============================================= */
 
 .scroll-progress {
   position: fixed;
   top: 0; left: 0;
-  height: 3px;
+  height: 2px;
   width: 0;
-  background: var(--accent-grad);
-  z-index: 9999;
+  background: var(--accent);
+  z-index: var(--z-progress);
   transition: width 50ms linear;
 }
+
+/* Subtle grain overlay — breaks flat digital sterility */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: var(--z-progress);
+}
+
+[data-theme="light"] body::after { opacity: 0.018; }
 
 /* =============================================
    NAVIGATION
@@ -104,7 +147,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  z-index: 100;
+  z-index: var(--z-nav);
   background: transparent;
   transition: background var(--base) var(--ease), box-shadow var(--base) var(--ease);
 }
@@ -130,7 +173,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: var(--accent-grad);
+  background: var(--accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -168,7 +211,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   transform: translateX(-50%);
   width: 4px; height: 4px;
   border-radius: 50%;
-  background: var(--accent-1);
+  background: var(--accent);
 }
 
 .nav-actions {
@@ -198,15 +241,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 [data-theme="light"] .toggle-track {
-  background: rgba(0,201,167,0.15);
-  border-color: rgba(0,201,167,0.35);
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
 }
 
 .toggle-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--accent-grad);
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,13 +319,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .section-label {
   display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent-1);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
   margin-bottom: 0.75rem;
   font-family: 'Fira Code', monospace;
+  opacity: 0.85;
 }
 
 .section-title {
@@ -292,6 +335,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   letter-spacing: -0.5px;
   margin-bottom: 1rem;
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 .section-subtitle {
@@ -300,6 +344,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   max-width: 540px;
   margin: 0 auto;
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 /* =============================================
@@ -319,15 +364,21 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .btn-primary {
-  background: var(--accent-grad);
+  background: var(--accent);
   color: #000;
   box-shadow: var(--shadow-accent);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0,201,167,0.4);
-  filter: brightness(1.05);
+  box-shadow: 0 12px 40px rgba(0, 184, 150, 0.32);
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-accent);
+  filter: brightness(0.96);
 }
 
 .btn-ghost {
@@ -337,9 +388,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .btn-ghost:hover {
-  border-color: var(--accent-1);
-  color: var(--accent-1);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* =============================================
@@ -349,12 +404,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .tag {
   display: inline-block;
   padding: 0.2rem 0.65rem;
-  background: rgba(0,201,167,0.08);
-  border: 1px solid rgba(0,201,167,0.2);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--accent-1);
+  color: var(--accent);
   font-family: 'Fira Code', monospace;
   letter-spacing: 0.2px;
 }
@@ -364,7 +419,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
    ============================================= */
 
 .hero {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding-top: var(--nav-h);
@@ -393,14 +448,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .hero-orb-1 {
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,201,167,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 184, 150, 0.14) 0%, transparent 70%);
   top: -200px; left: -200px;
   animation: orbFloat 20s ease-in-out infinite;
 }
 
 .hero-orb-2 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 184, 150, 0.1) 0%, transparent 70%);
   bottom: -150px; right: -150px;
   animation: orbFloat 25s ease-in-out infinite reverse;
 }
@@ -427,19 +482,19 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1rem;
-  background: rgba(0,201,167,0.08);
-  border: 1px solid rgba(0,201,167,0.25);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent-1);
+  color: var(--accent);
   margin-bottom: 1.5rem;
   animation: fadeInDown 0.6s var(--ease) both;
 }
 
 .badge-dot {
   width: 7px; height: 7px;
-  background: var(--accent-1);
+  background: var(--accent);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -454,14 +509,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-weight: 900;
   letter-spacing: -2px;
   line-height: 1.05;
-  white-space: nowrap;
   color: var(--text-1);
   margin-bottom: 1.25rem;
   animation: fadeInUp 0.7s var(--ease) 0.1s both;
 }
 
 .name-accent {
-  background: var(--accent-grad);
+  background: var(--accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -484,7 +538,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .role-divider {
-  color: var(--accent-1);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -500,14 +554,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .typing-prefix { color: var(--text-3); }
 
 .hero-typing {
-  color: var(--accent-1);
+  color: var(--accent);
   font-weight: 500;
 }
 
 .hero-typing::after {
   content: '|';
   animation: blink 1s step-end infinite;
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 @keyframes blink {
@@ -522,6 +576,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   max-width: 520px;
   margin-bottom: 2.5rem;
   animation: fadeInUp 0.7s var(--ease) 0.4s both;
+  text-wrap: pretty;
 }
 
 .hero-cta {
@@ -554,9 +609,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .social-btn:hover {
-  color: var(--accent-1);
+  color: var(--accent);
   border-color: var(--border-accent);
-  background: rgba(0,201,167,0.06);
+  background: var(--accent-dim);
   transform: translateY(-2px);
 }
 
@@ -578,7 +633,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .profile-glow {
   position: absolute;
   inset: -20px;
-  background: radial-gradient(circle, rgba(0,201,167,0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 184, 150, 0.22) 0%, transparent 70%);
   border-radius: 50%;
   animation: glowPulse 4s ease-in-out infinite;
 }
@@ -602,7 +657,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: absolute;
   inset: -6px;
   border-radius: 28px;
-  background: var(--accent-grad);
+  background: var(--accent);
   opacity: 0.2;
   z-index: 0;
 }
@@ -660,7 +715,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .stat-pill strong {
-  color: var(--accent-1);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -706,7 +761,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
@@ -721,7 +776,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg), 0 0 0 1px var(--border-accent);
   border-color: var(--border-accent);
 }
@@ -753,16 +808,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .project-category-badge {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--accent-1);
-  background: rgba(0,201,167,0.12);
-  border: 1px solid rgba(0,201,167,0.3);
-  padding: 0.25rem 0.7rem;
-  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-sm);
   font-family: 'Fira Code', monospace;
+  letter-spacing: 0.3px;
 }
 
 .project-body {
@@ -788,6 +842,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   color: var(--text-2);
   line-height: 1.65;
   margin: 0;
+  text-wrap: pretty;
 }
 
 .project-highlights {
@@ -808,13 +863,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--accent-1);
+  color: var(--accent);
 }
 
 .project-footer {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: auto;
 }
 
 .project-tags {
@@ -844,12 +900,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .project-link-btn:hover {
   border-color: var(--border-accent);
-  color: var(--accent-1);
-  background: rgba(0,201,167,0.06);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.project-link-btn:active {
+  transform: scale(0.97);
 }
 
 .project-link-primary {
-  background: var(--accent-grad);
+  background: var(--accent);
   color: #000;
   border-color: transparent;
   font-weight: 700;
@@ -967,7 +1027,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--accent-grad);
+  background: var(--accent);
   opacity: 0;
   transition: opacity var(--base) var(--ease);
 }
@@ -985,10 +1045,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,201,167,0.08);
-  border: 1px solid rgba(0,201,167,0.2);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-md);
-  color: var(--accent-1);
+  color: var(--accent);
   margin-bottom: 1.25rem;
 }
 
@@ -1019,8 +1079,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .skill-pill:hover {
   border-color: var(--border-accent);
-  color: var(--accent-1);
-  background: rgba(0,201,167,0.06);
+  color: var(--accent);
+  background: var(--accent-dim);
 }
 
 /* =============================================
@@ -1073,15 +1133,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   border-top: 1px solid var(--border);
 }
 
-.contact-item:hover { background: rgba(0,201,167,0.04); }
+.contact-item:hover { background: var(--accent-dim); }
 
 .contact-item-icon {
   width: 42px; height: 42px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(0,201,167,0.08);
-  border: 1px solid rgba(0,201,167,0.2);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-md);
-  color: var(--accent-1);
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -1101,14 +1161,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   transition: color var(--fast);
 }
 
-.contact-item-value:hover { color: var(--accent-1); }
+.contact-item-value:hover { color: var(--accent); }
 
 /* =============================================
    FOOTER
    ============================================= */
 
 .footer {
-  padding: 2rem 0;
+  padding: 1.75rem 0;
   border-top: 1px solid var(--border);
 }
 
@@ -1128,6 +1188,25 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   margin: 0;
 }
 
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-link {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  transition: color var(--fast);
+}
+
+.footer-link:hover { color: var(--text-2); }
+
 .footer-socials {
   display: flex;
   gap: 0.75rem;
@@ -1138,7 +1217,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   transition: color var(--fast);
 }
 
-.footer-socials a:hover { color: var(--accent-1); }
+.footer-socials a:hover { color: var(--accent); }
 
 /* =============================================
    ANIMATIONS
@@ -1213,9 +1292,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .timeline-dot.active {
-  border-color: var(--accent-1);
-  background: var(--accent-1);
-  box-shadow: 0 0 0 4px rgba(0,201,167,0.2);
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-border);
 }
 
 .timeline-line {
@@ -1255,10 +1334,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,201,167,0.08);
-  border: 1px solid rgba(0,201,167,0.2);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-md);
-  color: var(--accent-1);
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -1283,7 +1362,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .company-name {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--accent-1);
+  color: var(--accent);
 }
 
 .company-type {
@@ -1302,7 +1381,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #000;
-  background: var(--accent-1);
+  background: var(--accent);
   padding: 0.15rem 0.55rem;
   border-radius: var(--radius-full);
 }
@@ -1361,7 +1440,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--accent-1);
+  color: var(--accent);
   font-size: 0.8rem;
 }
 
@@ -1463,4 +1542,5 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .stats-row { gap: 0.5rem; }
 
   .footer-inner { flex-direction: column; text-align: center; }
+  .footer-right { flex-direction: column; gap: 0.75rem; }
 }

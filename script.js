@@ -1,4 +1,25 @@
 // =============================================
+// JOB DURATION (auto-calculated from start date)
+// =============================================
+
+document.querySelectorAll('.job-duration').forEach((el) => {
+    const start = new Date(el.dataset.start);
+    const now = new Date();
+    let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    if (now.getDate() < start.getDate()) months--;
+    months = Math.max(months, 0);
+
+    const years = Math.floor(months / 12);
+    const remMonths = months % 12;
+
+    const parts = [];
+    if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
+    if (remMonths > 0 || years === 0) parts.push(`${remMonths} mo${remMonths !== 1 ? 's' : ''}`);
+
+    el.textContent = `Present · ${parts.join(' ')}`;
+});
+
+// =============================================
 // THEME TOGGLE
 // =============================================
 
@@ -106,12 +127,12 @@ function highlightActiveSection() {
 
 const typingEl = document.getElementById('typingText');
 const phrases = [
-    'intelligent AI systems.',
-    'scalable web platforms.',
-    'deep learning models.',
+    'AI-powered applications.',
+    'LLM applications.',
+    'RAG systems.',
+    'machine learning solutions.',
+    'AI automation.',
     'full-stack applications.',
-    'computer vision tools.',
-    'data-driven products.',
 ];
 
 let pIdx = 0, cIdx = 0, deleting = false;
@@ -138,11 +159,25 @@ window.addEventListener('load', () => setTimeout(type, 800));
 // =============================================
 
 const revealObs = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); }),
+    (entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('revealed');
+                revealObs.unobserve(e.target);
+            }
+        });
+    },
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
 );
 
-document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el));
+document.querySelectorAll('.scroll-reveal').forEach((el, i) => {
+    const siblings = el.parentElement.querySelectorAll('.scroll-reveal');
+    const sibIdx = Array.from(siblings).indexOf(el);
+    if (sibIdx > 0) {
+        el.style.transitionDelay = `${sibIdx * 80}ms`;
+    }
+    revealObs.observe(el);
+});
 
 // =============================================
 // FOOTER YEAR
@@ -150,13 +185,13 @@ document.querySelectorAll('.scroll-reveal').forEach(el => revealObs.observe(el))
 
 const footerYear = document.getElementById('footerYear');
 if (footerYear) {
-    footerYear.textContent = `© ${new Date().getFullYear()} Umair Akram. Built with passion for AI & innovation.`;
+    footerYear.textContent = `© ${new Date().getFullYear()} Umair Akram`;
 }
 
 // =============================================
 // CONSOLE EASTER EGG
 // =============================================
 
-console.log('%c< UA />', 'color: #00c9a7; font-size: 24px; font-weight: 900; font-family: monospace;');
-console.log('%cHey! Curious about the code? Check out: https://github.com/umair-rai', 'color: #00b4d8; font-size: 13px;');
-console.log('%cLet\'s build something amazing together 🚀', 'color: #8b949e; font-size: 13px;');
+console.log('%c< UA />', 'color: #00b896; font-size: 24px; font-weight: 900; font-family: monospace;');
+console.log('%cHey — curious about the code? github.com/umair-rai', 'color: #00b896; font-size: 13px; opacity: 0.8;');
+console.log('%cLet\'s build something together.', 'color: #8892a0; font-size: 13px;');

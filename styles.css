@@ -173,6 +173,7 @@ body::after {
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  color: var(--accent);
   background: var(--accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -647,6 +648,7 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
   border-radius: 24px;
   border: 2px solid var(--border-accent);
   position: relative;
@@ -1502,6 +1504,8 @@ body::after {
     position: fixed;
     top: var(--nav-h);
     left: 0; right: 0;
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
     background: color-mix(in srgb, var(--bg-0) 97%, transparent);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -1509,11 +1513,16 @@ body::after {
     padding: 1.5rem;
     gap: 0.25rem;
     border-bottom: 1px solid var(--border);
-    transform: translateY(-110%);
-    transition: transform var(--base) var(--ease);
+    transform: translateY(-100vh);
+    visibility: hidden;
+    transition: transform var(--base) var(--ease), visibility 0s linear var(--base);
   }
 
-  .nav-menu.open { transform: translateY(0); }
+  .nav-menu.open {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform var(--base) var(--ease);
+  }
 
   .nav-link {
     width: 100%;

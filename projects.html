@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All projects by Muhammad Umair Akram: AI products, full-stack platforms, client work, and academic research.">
+  <title>All Projects · M Umair Akram</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f0f14'/%3E%3Ctext x='50' y='58' font-family='Outfit, Arial, sans-serif' font-size='38' font-weight='800' fill='%2300b896' text-anchor='middle'%3EUA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">UA</a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
+        <li><a href="index.html#education" class="nav-link">Education</a></li>
+        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="toggle-track"><span class="toggle-thumb">
+            <span class="toggle-sun"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+            <span class="toggle-moon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          </span></span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="pp">
+    <header class="pp-hero">
+      <div class="hero-bg-grid"></div>
+      <div class="container">
+        <a href="index.html#projects" class="pp-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back to portfolio</a>
+        <h1 class="pp-title">All Projects</h1>
+        <p class="pp-lead">Production AI products, full-stack platforms, client work, and the research and coursework behind them.</p>
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="chip is-active" data-filter="all" aria-pressed="true">All <span class="chip-n"></span></button>
+          <button class="chip" data-filter="ai" aria-pressed="false">AI / ML <span class="chip-n"></span></button>
+          <button class="chip" data-filter="fullstack" aria-pressed="false">Full-stack <span class="chip-n"></span></button>
+          <button class="chip" data-filter="professional" aria-pressed="false">Professional <span class="chip-n"></span></button>
+          <button class="chip" data-filter="academic" aria-pressed="false">Academic <span class="chip-n"></span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="all-grid" id="allGrid">
+        <article class="all-card in" data-cats="ai academic">
+          <div class="all-thumb">
+            <img src="assets/FYP.png" alt="AI Pet Breed Recognition Platform" loading="lazy">
+            <div class="project-img-overlay"><span class="project-category-badge">Final Year Project</span></div>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title"><a href="projects/pet-breed-recognition.html">AI Pet Breed Recognition Platform</a></h3>
+            <p class="project-desc">Computer-vision platform identifying 139 cat and dog breeds. 91.31% Top-1 accuracy with YOLOv8m-Seg detection and a Swin Transformer classifier.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">PyTorch</span><span class="tag">YOLOv8</span><span class="tag">Swin</span><span class="tag">FastAPI</span><span class="tag">Modal</span></div><span class="all-more">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai professional">
+          <div class="all-thumb">
+            <img src="assets/IRS-Chatbot-Light.png" alt="IRS Tax Chatbot" loading="lazy">
+            <div class="project-img-overlay"><span class="project-category-badge">AI Product · RAG</span></div>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title"><a href="projects/irs-rag-chatbot.html">IRS Tax Chatbot</a></h3>
+            <p class="project-desc">Grounded tax answers over ~18,000 indexed IRS pages, with step-by-step calculations and source links.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">FastAPI</span><span class="tag">PydanticAI</span><span class="tag">RAG</span><span class="tag">Vector DB</span></div><span class="all-more">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai fullstack professional">
+          <div class="all-thumb">
+            <img src="assets/Statement-AI.png" alt="Statement AI" loading="lazy">
+            <div class="project-img-overlay"><span class="project-category-badge">Flagship · AI Product</span></div>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title"><a href="projects/statement-ai.html">Statement AI</a></h3>
+            <p class="project-desc">Bank statement analysis with AI categorization and a data-grounded assistant. Cut processing from ~15–21 minutes to ~45 seconds.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">LLM Agents</span><span class="tag">Stripe</span></div><span class="all-more">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="fullstack professional">
+          <div class="all-thumb">
+            <img src="assets/Weekviz.png" alt="WeekViz" loading="lazy">
+            <div class="project-img-overlay"><span class="project-category-badge">Professional Project</span></div>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title"><a href="projects/weekviz.html">WeekViz</a></h3>
+            <p class="project-desc">Multi-tenant workforce-management SaaS: attendance, timesheets, payroll, leave and projects, with seat-based Stripe billing.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Stripe</span></div><span class="all-more">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="fullstack professional">
+          <div class="all-thumb">
+            <img src="assets/Eme6.png" alt="Al Sayyed Electro Mech" loading="lazy">
+            <div class="project-img-overlay"><span class="project-category-badge">Client Project</span></div>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title"><a href="projects/al-sayyed-electro-mech.html">Al Sayyed Electro Mech</a></h3>
+            <p class="project-desc">Bilingual English/Arabic B2B catalog for an industrial supplier, with RTL layout and an inquiry-based cart.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Tailwind</span></div><span class="all-more">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">🧠</span>
+            <span class="project-category-badge">Deep Learning</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Image Classification — ResNet-18</h3>
+            <p class="project-desc">Fine-tuned ResNet-18 with transfer learning on custom image datasets and evaluated model performance.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">PyTorch</span><span class="tag">Transfer Learning</span><span class="tag">CNNs</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">🧠</span>
+            <span class="project-category-badge">Deep Learning</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Vision Transformer (Swin)</h3>
+            <p class="project-desc">Applied the Swin Transformer to image classification and compared it with CNN-based approaches.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">Transformers</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">🤖</span>
+            <span class="project-category-badge">Machine Learning</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Supervised Learning Models</h3>
+            <p class="project-desc">Classification and regression pipelines covering preprocessing, feature engineering, training and evaluation.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">Scikit-learn</span><span class="tag">Python</span><span class="tag">Pandas</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="ai academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">🤖</span>
+            <span class="project-category-badge">Machine Learning</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Prediction Systems</h3>
+            <p class="project-desc">Predictive models built with classical and ensemble machine-learning algorithms.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">ML Algorithms</span><span class="tag">Data Analysis</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">🧩</span>
+            <span class="project-category-badge">Compiler Construction</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Compiler Components</h3>
+            <p class="project-desc">Lexical analysis, parsing, syntax analysis and symbol table management.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">C++</span><span class="tag">Parsing</span><span class="tag">System Design</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">💻</span>
+            <span class="project-category-badge">Desktop Application</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Hotel Management System</h3>
+            <p class="project-desc">Desktop application for managing rooms, bookings, customers and billing.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">C++</span><span class="tag">File Handling</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">💻</span>
+            <span class="project-category-badge">Desktop Application</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">E-Commerce Management (Daraz-like)</h3>
+            <p class="project-desc">GUI application for product, customer and order management.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">C# WinForms</span><span class="tag">Event-Driven</span></div></div>
+          </div>
+        </article>
+        <article class="all-card in" data-cats="academic">
+          <div class="all-thumb all-thumb-icon">
+            <span class="all-icon" aria-hidden="true">💻</span>
+            <span class="project-category-badge">Desktop Application</span>
+          </div>
+          <div class="all-body">
+            <h3 class="project-title">Library Management System</h3>
+            <p class="project-desc">CRUD application for managing books, members, and issue/return records.</p>
+            <div class="all-foot"><div class="project-tags"><span class="tag">C# WinForms</span><span class="tag">CRUD</span></div></div>
+          </div>
+        </article>
+      </div>
+      <p class="all-empty" id="allEmpty" hidden>No projects in this category yet.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html#home" class="nav-logo footer-logo">UA</a>
+        <p class="footer-text" id="footerYear"></p>
+        <div class="footer-right"><a class="footer-link" href="index.html#contact">Get in touch</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.all-card'));
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+      var empty = document.getElementById('allEmpty');
+      var valid = chips.map(function (c) { return c.dataset.filter; });
+
+      function matches(card, f) { return f === 'all' || card.dataset.cats.split(' ').indexOf(f) !== -1; }
+
+      chips.forEach(function (c) {
+        var f = c.dataset.filter;
+        c.querySelector('.chip-n').textContent = cards.filter(function (k) { return matches(k, f); }).length;
+      });
+
+      function apply(f) {
+        var shown = 0;
+        cards.forEach(function (card) {
+          var ok = matches(card, f);
+          card.hidden = !ok;
+          card.classList.remove('in');
+          if (ok) {
+            void card.offsetWidth;
+            card.style.setProperty('--d', shown * 45 + 'ms');
+            card.classList.add('in');
+            shown++;
+          }
+        });
+        empty.hidden = shown !== 0;
+        chips.forEach(function (c) {
+          var on = c.dataset.filter === f;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-pressed', on);
+        });
+      }
+
+      chips.forEach(function (c) {
+        c.addEventListener('click', function () {
+          apply(c.dataset.filter);
+          try { history.replaceState(null, '', c.dataset.filter === 'all' ? location.pathname : '#' + c.dataset.filter); } catch (e) {}
+        });
+      });
+
+      var start = location.hash.slice(1);
+      apply(valid.indexOf(start) !== -1 ? start : 'all');
+    })();
+  </script>
+</body>
+</html>

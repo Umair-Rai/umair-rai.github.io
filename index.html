@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammad Umair Akram - AI Engineer building AI-powered applications, LLM workflows, and RAG systems, with a strong software engineering and full-stack development foundation.">
+  <meta name="description" content="Muhammad Umair Akram - AI Engineer building production LLM, RAG, and agentic systems. CS graduate, 3.76/4.00 CGPA, highest in class, Cum Laude.">
   <meta name="keywords" content="AI Engineer, Machine Learning, LLM, RAG, AI Applications, Software Engineering, Full-Stack Development">
   <meta name="author" content="Muhammad Umair Akram">
   <meta property="og:title" content="Muhammad Umair Akram — AI Engineer">
-  <meta property="og:description" content="AI Engineer building AI-powered applications, LLM workflows, and RAG systems, with a strong software engineering and full-stack development foundation.">
+  <meta property="og:description" content="AI Engineer building production LLM, RAG, and agentic systems. CS graduate, 3.76/4.00 CGPA, highest in class, Cum Laude.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/Image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#more-projects" class="nav-link">More</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -62,12 +62,14 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-bg-grid"></div>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-name">Muhammad Umair <span class="name-accent">Akram</span></h1>
+          <div class="hero-badge"><span class="badge-dot"></span>2+ years experience · AI Engineer at Horrizon AI</div>
+          <h1 class="hero-name" aria-label="Muhammad Umair Akram"><span class="word" aria-hidden="true"><span style="animation-delay:.15s">Muhammad</span></span> <span class="word" aria-hidden="true"><span style="animation-delay:.28s">Umair</span></span> <span class="word" aria-hidden="true"><span class="name-accent" style="animation-delay:.41s">Akram</span></span></h1>
           <div class="hero-roles">
             <span class="role-tag">AI Engineer</span>
             <span class="role-divider">·</span>
@@ -78,12 +80,16 @@
             <span class="hero-typing" id="typingText"></span>
           </div>
           <p class="hero-description">
-            AI Engineer focused on building AI-powered applications, LLM workflows, and production-ready software. Experienced in RAG, machine learning, and full-stack development with Python and modern web technologies.
+            AI Engineer building production LLM, RAG, and agentic systems. Cut a bank-statement analysis pipeline from ~15–21 minutes to ~45 seconds and shipped an IRS tax chatbot over ~18,000 indexed pages. CS graduate with a 3.76/4.00 CGPA, highest in class, Cum Laude.
           </p>
           <div class="hero-cta">
             <a href="#projects" class="btn btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               View My Work
+            </a>
+            <a href="assets/Muhammad-Umair-Akram-CV.pdf" download class="btn btn-ghost">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
             </a>
             <a href="#contact" class="btn btn-ghost">
               Get In Touch
@@ -119,13 +125,13 @@
           </div>
           <div class="stats-row">
             <div class="stat-pill">
-              <strong>2+</strong> Yrs Experience
+              <strong data-count="2" data-suffix="+">2+</strong> Yrs Experience
             </div>
             <div class="stat-pill">
-              <strong>3+</strong> Projects Deployed
+              <strong data-count="3.76" data-decimals="2">3.76</strong> CGPA · Cum Laude
             </div>
             <div class="stat-pill">
-              <strong>AI</strong> Engineering
+              <strong data-count="18" data-prefix="~" data-suffix="K">~18K</strong> IRS Pages Indexed
             </div>
           </div>
         </div>
@@ -134,6 +140,74 @@
     <div class="scroll-hint">
       <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Proof strip: live products + stack marquee -->
+  <section class="proof" aria-label="Live products and tech stack">
+    <div class="container">
+      <div class="proof-inner scroll-reveal">
+        <span class="proof-label"><span class="live-dot"></span>Live in production</span>
+        <a href="https://statementai.io" target="_blank" rel="noopener noreferrer" class="proof-item">
+          <strong>Statement AI</strong><span>AI financial analysis</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="https://irs.horrizonai.com" target="_blank" rel="noopener noreferrer" class="proof-item">
+          <strong>IRS Tax Chatbot</strong><span>Grounded tax answers from IRS data</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="https://weekviz.com" target="_blank" rel="noopener noreferrer" class="proof-item">
+          <strong>WeekViz</strong><span>Workforce analytics</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toolbox ticker -->
+  <section class="toolbox" aria-labelledby="toolbox-title">
+    <div class="container">
+      <h2 class="toolbox-title" id="toolbox-title">Tools I work with</h2>
+    </div>
+    <div class="ticker">
+      <ul class="ticker-track">
+        <li>React.js</li><li>TypeScript</li><li>Node.js</li><li>Express.js</li><li>FastAPI</li><li>REST APIs</li><li>PostgreSQL</li><li>MongoDB</li><li>SQL</li><li>Tailwind CSS</li><li>Stripe</li><li>Git</li><li>Docker</li><li>VPS Deployment</li>
+      </ul>
+      <ul class="ticker-track" aria-hidden="true">
+        <li>React.js</li><li>TypeScript</li><li>Node.js</li><li>Express.js</li><li>FastAPI</li><li>REST APIs</li><li>PostgreSQL</li><li>MongoDB</li><li>SQL</li><li>Tailwind CSS</li><li>Stripe</li><li>Git</li><li>Docker</li><li>VPS Deployment</li>
+      </ul>
+    </div>
+    <div class="ticker ticker--reverse">
+      <ul class="ticker-track">
+        <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>YOLOv8</li><li>Swin Transformer</li><li>LLMs</li><li>RAG</li><li>Agentic AI</li><li>Generative AI</li><li>PydanticAI</li><li>Prompt Engineering</li><li>NLP</li><li>Computer Vision</li><li>Deep Learning</li><li>Machine Learning</li>
+      </ul>
+      <ul class="ticker-track" aria-hidden="true">
+        <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>YOLOv8</li><li>Swin Transformer</li><li>LLMs</li><li>RAG</li><li>Agentic AI</li><li>Generative AI</li><li>PydanticAI</li><li>Prompt Engineering</li><li>NLP</li><li>Computer Vision</li><li>Deep Learning</li><li>Machine Learning</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Impact numbers -->
+  <section class="impact" aria-label="Impact in numbers">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-tile scroll-reveal">
+          <div class="impact-num"><span data-count="45" data-suffix="s">45s</span></div>
+          <div class="impact-label">StatementAI analysis time, down from ~15–21 minutes</div>
+        </div>
+        <div class="impact-tile scroll-reveal">
+          <div class="impact-num"><span data-count="18000" data-prefix="~">~18,000</span></div>
+          <div class="impact-label">unique IRS pages indexed for the RAG chatbot</div>
+        </div>
+        <div class="impact-tile scroll-reveal">
+          <div class="impact-num"><span data-count="91.31" data-decimals="2" data-suffix="%">91.31%</span></div>
+          <div class="impact-label">Top-1 accuracy across 139 cat and dog breeds</div>
+        </div>
+        <div class="impact-tile scroll-reveal">
+          <div class="impact-num"><span data-count="3.76" data-decimals="2">3.76</span><small>/4.00</small></div>
+          <div class="impact-label">CGPA, highest in class, Cum Laude</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -160,7 +234,7 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               </div>
               <div class="timeline-meta">
-                <h3 class="timeline-role">AI/ML Engineer</h3>
+                <h3 class="timeline-role">AI Engineer</h3>
                 <div class="timeline-company">
                   <span class="company-name">Horrizon AI</span>
                   <span class="company-type">Full-time</span>
@@ -178,24 +252,24 @@
                 </div>
               </div>
             </div>
-            <p class="timeline-summary">Develop AI-powered applications and supporting data workflows across the product stack.</p>
+            <p class="timeline-summary">Develop and deploy production AI applications using Python, FastAPI, LLMs, RAG, agentic systems, and automation workflows.</p>
             <div class="timeline-section">
-              <div class="timeline-section-title">What I work on</div>
+              <div class="timeline-section-title">Impact</div>
               <ul class="timeline-bullets">
-                <li>Develop full-stack features for AI products using React.js, Node.js, and MongoDB.</li>
-                <li>Build data labeling and preparation workflows for machine learning applications.</li>
-                <li>Integrate AI/ML capabilities into production web applications and backend services.</li>
-                <li>Work on prompt engineering, model evaluation, and AI workflow improvements.</li>
+                <li>Owned StatementAI end-to-end: document processing, structured financial-data extraction, agent tools, backend APIs, and subscription/payment workflows. Cut processing time from ~15–21 minutes to ~45 seconds.</li>
+                <li>Built and delivered an IRS tax chatbot end-to-end, indexing ~18,000 unique IRS web pages into a vector database with semantic retrieval and agent-based question answering.</li>
+                <li>Contributed to WeekViz, a multi-tenant workforce-management SaaS: backend APIs, access-control workflows, data management, Stripe subscription billing, and AI-powered features.</li>
               </ul>
             </div>
             <div class="timeline-tags">
               <span class="tag">Python</span>
-              <span class="tag">React.js</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">AI/ML Integration</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Agentic AI</span>
+              <span class="tag">PydanticAI</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Stripe</span>
             </div>
           </div>
         </div>
@@ -211,7 +285,7 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
               </div>
               <div class="timeline-meta">
-                <h3 class="timeline-role">Web Developer</h3>
+                <h3 class="timeline-role">Software Developer</h3>
                 <div class="timeline-company">
                   <span class="company-name">Softrick Solutions</span>
                   <span class="company-type">Full-time</span>
@@ -232,10 +306,10 @@
             <div class="timeline-section">
               <div class="timeline-section-title">Key contributions</div>
               <ul class="timeline-bullets">
-                <li>Built full-stack web applications using React.js, Node.js, Express, and MongoDB.</li>
-                <li>Developed REST APIs, integrated databases, and implemented frontend functionality.</li>
-                <li>Worked across frontend and backend tasks throughout the development lifecycle.</li>
-                <li>Used Git, CMS platforms, and modern web development workflows across client projects.</li>
+                <li>Developed and deployed full-stack web applications using React.js, Node.js, REST APIs, and databases.</li>
+                <li>Built AutozCare, an e-commerce platform for automotive care products with product catalogs and shopping features.</li>
+                <li>Developed Al Sayyed Engineering, a responsive product-focused business website for an industrial supplier of pump parts and mechanical seals.</li>
+                <li>Built and maintained REST APIs and database integrations, and improved application performance.</li>
               </ul>
             </div>
             <div class="timeline-tags">
@@ -265,56 +339,94 @@
 
       <div class="projects-grid">
 
-        <!-- FYP: AI Pet Breed Recognition -->
         <article class="project-card scroll-reveal">
           <div class="project-img-wrap">
-            <img src="assets/FYP.png" alt="AI Pet Breed Recognition Platform" class="project-img">
+            <img src="assets/FYP.png" alt="AI Pet Breed Recognition Platform" class="project-img" loading="lazy">
             <div class="project-img-overlay">
               <span class="project-category-badge">Final Year Project</span>
             </div>
           </div>
           <div class="project-body">
             <div class="project-top">
-              <h3 class="project-title">AI Pet Breed Recognition Platform</h3>
-              <p class="project-desc">AI-powered platform for cat and dog breed recognition, combining computer vision models with a web application for pet-related services.</p>
+              <h3 class="project-title"><a href="projects/pet-breed-recognition.html">AI Pet Breed Recognition Platform</a></h3>
+              <p class="project-desc">AI platform identifying 139 cat and dog breeds, with pet-related services and an administrative portal. Designed the full computer-vision pipeline and model-serving backend.</p>
             </div>
             <ul class="project-highlights">
-              <li>Pet detection and breed classification using deep learning</li>
-              <li>Fine-tuned ResNet-18 and Swin Transformer models</li>
-              <li>React and Node.js application with FastAPI-based ML services</li>
-              <li>Integrated pet services, recommendations, and e-commerce features</li>
+              <li>YOLOv8m-Seg for pet detection and Swin Transformer for breed classification</li>
+              <li>91.31% Top-1 accuracy, 90.67% macro F1, 99.15% Top-5 accuracy</li>
+              <li>FastAPI inference service deployed on Modal and integrated with the web app</li>
             </ul>
             <div class="project-footer">
               <div class="project-tags">
                 <span class="tag">Python</span>
                 <span class="tag">PyTorch</span>
+                <span class="tag">YOLOv8</span>
+                <span class="tag">Swin Transformer</span>
                 <span class="tag">FastAPI</span>
+                <span class="tag">Modal</span>
                 <span class="tag">React.js</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/pet-breed-recognition.html" class="project-link-btn project-link-ghost">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Statement AI -->
         <article class="project-card scroll-reveal">
           <div class="project-img-wrap">
-            <img src="assets/Statement-AI.png" alt="Statement AI Financial Analysis Platform" class="project-img">
+            <img src="assets/IRS-Chatbot-Light.png" alt="IRS Tax Chatbot answering a federal tax question with step-by-step calculation" class="project-img" loading="lazy">
             <div class="project-img-overlay">
-              <span class="project-category-badge">AI Product</span>
+              <span class="project-category-badge">AI Product · RAG</span>
             </div>
           </div>
           <div class="project-body">
             <div class="project-top">
-              <h3 class="project-title">Statement AI</h3>
-              <p class="project-desc">AI-powered financial analysis platform that processes bank statements into categorized transactions, financial analytics, and data-grounded insights.</p>
+              <h3 class="project-title"><a href="projects/irs-rag-chatbot.html">IRS Tax Chatbot</a></h3>
+              <p class="project-desc">Question-answering system over U.S. IRS information using retrieval-augmented generation. Ask about forms, deadlines or your own tax situation and get grounded, step-by-step answers with source links.</p>
             </div>
             <ul class="project-highlights">
-              <li>Automated transaction categorization and merchant detection</li>
-              <li>Multi-statement processing and transaction normalization</li>
-              <li>Spending, income, and recurring-payment analytics</li>
-              <li>AI assistant grounded in the user's financial data</li>
+              <li>Collected, processed and indexed ~18,000 unique IRS web pages into a vector database</li>
+              <li>Semantic retrieval pipeline with an LLM agent that answers from retrieved sources</li>
+              <li>FastAPI and PydanticAI backend, delivered end-to-end</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">PydanticAI</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Vector DB</span>
+                <span class="tag">LLMs</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/irs-rag-chatbot.html" class="project-link-btn project-link-ghost">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a href="https://irs.horrizonai.com" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card scroll-reveal">
+          <div class="project-img-wrap">
+            <img src="assets/Statement-AI.png" alt="Statement AI Financial Analysis Platform" class="project-img" loading="lazy">
+            <div class="project-img-overlay">
+              <span class="project-category-badge">Flagship · AI Product</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3 class="project-title"><a href="projects/statement-ai.html">Statement AI</a></h3>
+              <p class="project-desc">AI-powered bank statement analysis platform. Upload a PDF, CSV or Excel statement and get categorized transactions, financial analytics, and a chat assistant grounded in your own data. Built end-to-end.</p>
+            </div>
+            <ul class="project-highlights">
+              <li>Cut analysis time from ~15–21 minutes to ~45 seconds</li>
+              <li>AI transaction categorization, merchant detection, and multi-statement consolidation with internal-transfer correction</li>
+              <li>Agent tools that query user-scoped transaction data for data-grounded answers</li>
+              <li>Stripe subscriptions, plan quotas, and a separate admin console</li>
             </ul>
             <div class="project-footer">
               <div class="project-tags">
@@ -322,10 +434,11 @@
                 <span class="tag">PostgreSQL</span>
                 <span class="tag">React (Vite)</span>
                 <span class="tag">TypeScript</span>
-                <span class="tag">AI/LLM</span>
+                <span class="tag">LLM Agents</span>
                 <span class="tag">Stripe</span>
               </div>
               <div class="project-links">
+                <a href="projects/statement-ai.html" class="project-link-btn project-link-ghost">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 <a href="https://statementai.io" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                   Live Demo
@@ -335,24 +448,22 @@
           </div>
         </article>
 
-        <!-- WeekViz -->
         <article class="project-card scroll-reveal">
           <div class="project-img-wrap">
-            <img src="assets/Weekviz.png" alt="WeekViz Analytics Platform" class="project-img">
+            <img src="assets/Weekviz.png" alt="WeekViz Workforce Management Platform" class="project-img" loading="lazy">
             <div class="project-img-overlay">
               <span class="project-category-badge">Professional Project</span>
             </div>
           </div>
           <div class="project-body">
             <div class="project-top">
-              <h3 class="project-title">WeekViz</h3>
-              <p class="project-desc">Business analytics platform developed at Horrizon AI for workforce and operational data, with interactive dashboards and production deployment.</p>
+              <h3 class="project-title"><a href="projects/weekviz.html">WeekViz</a></h3>
+              <p class="project-desc">Production multi-tenant workforce-management SaaS covering attendance, timesheets, payroll, leave, subscriptions, and project management, built at Horrizon AI.</p>
             </div>
             <ul class="project-highlights">
-              <li>Developed interactive dashboards and data visualizations</li>
-              <li>Implemented full-stack features across frontend and backend</li>
-              <li>Worked on authentication and administrative functionality</li>
-              <li>Supported production deployment and application maintenance</li>
+              <li>Built the administrative panel and backend APIs for multiple organizations and their employees</li>
+              <li>Stripe subscription billing with pro-rated, seat-based pricing and plan changes</li>
+              <li>Access-control workflows and data-management features across tenants</li>
             </ul>
             <div class="project-footer">
               <div class="project-tags">
@@ -361,8 +472,10 @@
                 <span class="tag">Node.js</span>
                 <span class="tag">Express</span>
                 <span class="tag">MongoDB</span>
+                <span class="tag">Stripe</span>
               </div>
               <div class="project-links">
+                <a href="projects/weekviz.html" class="project-link-btn project-link-ghost">Case study <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 <a href="https://weekviz.com" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                   Live Demo
@@ -372,144 +485,71 @@
           </div>
         </article>
 
-        <!-- Al Sayyed Electro Mech (eme6.com) -->
-        <article class="project-card scroll-reveal">
-          <div class="project-img-wrap">
-            <img src="assets/Eme6.png" alt="Al Sayyed Electro Mech Engineering Website" class="project-img">
-            <div class="project-img-overlay">
-              <span class="project-category-badge">Client Project</span>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-top">
-              <h3 class="project-title">Al Sayyed Electro Mech</h3>
-              <p class="project-desc">Bilingual B2B website and product catalog for an industrial engineering supplier, with English/Arabic support, RTL layout, and inquiry-based purchasing.</p>
-            </div>
-            <ul class="project-highlights">
-              <li>English and Arabic support with RTL layout</li>
-              <li>Product catalog for pump and mechanical seal components</li>
-              <li>Inquiry-based cart and email notifications</li>
-              <li>Authentication and admin functionality</li>
-            </ul>
-            <div class="project-footer">
-              <div class="project-tags">
-                <span class="tag">React.js</span>
-                <span class="tag">Tailwind CSS</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">Express</span>
-                <span class="tag">MongoDB</span>
-              </div>
-              <div class="project-links">
-                <a href="https://eme6.com" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
+      </div>
 
+      <div class="projects-more scroll-reveal">
+        <a href="projects.html" class="btn btn-ghost projects-more-btn">
+          View all projects (13)
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p>Client work, research, and academic projects across AI, systems, and desktop software</p>
       </div>
     </div>
   </section>
 
-  <!-- More Projects Section -->
-  <section class="section section-alt" id="more-projects">
+  <!-- Education Section -->
+  <section class="section section-alt" id="education">
     <div class="container">
       <div class="section-header scroll-reveal">
-        <span class="section-label">Academic & Side Work</span>
-        <h2 class="section-title">More Projects</h2>
-        <p class="section-subtitle">Research, coursework, and exploratory builds across AI, systems, and desktop software</p>
+        <span class="section-label">Academics</span>
+        <h2 class="section-title">Education &amp; Credentials</h2>
+        <p class="section-subtitle">Top of my class in Computer Science, with continuing training in applied AI</p>
       </div>
-
-      <div class="more-grid">
-
-        <div class="more-card scroll-reveal">
-          <div class="more-card-header">
-            <div class="more-card-icon">🧠</div>
-            <h3 class="more-card-title">Deep Learning</h3>
+      <div class="edu-grid">
+        <article class="edu-card scroll-reveal">
+          <div class="edu-head">
+            <div class="timeline-company-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3 class="timeline-role">BS in Computer Science</h3>
+              <div class="company-name">Bahria University, Lahore Campus</div>
+            </div>
           </div>
-          <ul class="more-list">
-            <li class="more-item">
-              <div class="more-item-name">Image Classification — ResNet-18</div>
-              <p class="more-item-desc">Fine-tuned ResNet-18 using transfer learning for custom image classification datasets and evaluated model performance.</p>
-              <div class="more-tags">
-                <span class="tag">PyTorch</span><span class="tag">Transfer Learning</span><span class="tag">CNNs</span>
-              </div>
-            </li>
-            <li class="more-item">
-              <div class="more-item-name">Vision Transformer (Swin)</div>
-              <p class="more-item-desc">Applied Swin Transformer to image classification and compared its performance with CNN-based approaches.</p>
-              <div class="more-tags">
-                <span class="tag">Transformers</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="more-card scroll-reveal">
-          <div class="more-card-header">
-            <div class="more-card-icon">🤖</div>
-            <h3 class="more-card-title">Machine Learning</h3>
+          <div class="edu-badges">
+            <span class="edu-badge edu-badge-main">CGPA 3.76 / 4.00</span>
+            <span class="edu-badge">Cum Laude</span>
+            <span class="edu-badge">Highest GPA in class</span>
+            <span class="edu-badge">Merit scholarship</span>
           </div>
-          <ul class="more-list">
-            <li class="more-item">
-              <div class="more-item-name">Supervised Learning Models</div>
-              <p class="more-item-desc">Built classification and regression pipelines covering preprocessing, feature engineering, model training, and evaluation.</p>
-              <div class="more-tags">
-                <span class="tag">Scikit-learn</span><span class="tag">Python</span><span class="tag">Pandas</span>
-              </div>
-            </li>
-            <li class="more-item">
-              <div class="more-item-name">Prediction Systems</div>
-              <p class="more-item-desc">Developed predictive models using classical and ensemble machine learning algorithms.</p>
-              <div class="more-tags">
-                <span class="tag">ML Algorithms</span><span class="tag">Data Analysis</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="more-card scroll-reveal">
-          <div class="more-card-header">
-            <div class="more-card-icon">🧩</div>
-            <h3 class="more-card-title">Compiler Construction</h3>
+          <div class="timeline-section-title">Focus areas</div>
+          <div class="timeline-tags">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">Databases</span>
+            <span class="tag">Software Engineering</span>
           </div>
-          <ul class="more-list">
-            <li class="more-item">
-              <div class="more-item-name">Compiler Components</div>
-              <p class="more-item-desc">Implemented compiler components including lexical analysis, parsing, syntax analysis, and symbol table management.</p>
-              <div class="more-tags">
-                <span class="tag">C++</span><span class="tag">Parsing</span><span class="tag">System Design</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="more-card scroll-reveal">
-          <div class="more-card-header">
-            <div class="more-card-icon">💻</div>
-            <h3 class="more-card-title">Desktop Applications</h3>
+        </article>
+        <article class="edu-card scroll-reveal">
+          <div class="timeline-section-title">Certifications</div>
+          <div class="cert-list">
+          <a href="https://www.linkedin.com/learning/certificates/aeb97ad8b88bf8ca370cab09039c283dac50884894c44857fc3fa2fb49580848/" target="_blank" rel="noopener noreferrer" class="cert-item">
+            <span class="cert-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="cert-text"><strong>Microsoft Azure AI Engineer Associate (AI-102) Cert Prep</strong><small>LinkedIn Learning · Sep 2026</small></span>
+          </a>
+          <a href="https://www.linkedin.com/learning/certificates/e6a6fb42837c04ada2c482f35a99bb2843f183a1d958643b97175c0056b9b5b3/" target="_blank" rel="noopener noreferrer" class="cert-item">
+            <span class="cert-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="cert-text"><strong>Deep Learning: Model Optimization and Tuning</strong><small>LinkedIn Learning · Sep 2026</small></span>
+          </a>
+          <a href="https://coursera.org/share/2287d405acc5e1b721cf9ccff48bf1c6" target="_blank" rel="noopener noreferrer" class="cert-item">
+            <span class="cert-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="cert-text"><strong>Python for Data Science, AI &amp; Development</strong><small>Coursera · Nov 2024</small></span>
+          </a>
           </div>
-          <ul class="more-list">
-            <li class="more-item">
-              <div class="more-item-name">Hotel Management System</div>
-              <p class="more-item-desc">Desktop application for managing rooms, bookings, customers, and billing.</p>
-              <div class="more-tags"><span class="tag">C++</span><span class="tag">File Handling</span></div>
-            </li>
-            <li class="more-item">
-              <div class="more-item-name">E-Commerce Management (Daraz-like)</div>
-              <p class="more-item-desc">GUI application for product, customer, and order management.</p>
-              <div class="more-tags"><span class="tag">C# WinForms</span><span class="tag">Event-Driven</span></div>
-            </li>
-            <li class="more-item">
-              <div class="more-item-name">Library Management System</div>
-              <p class="more-item-desc">CRUD application for managing books, members, and issue/return records.</p>
-              <div class="more-tags"><span class="tag">C# WinForms</span><span class="tag">CRUD</span></div>
-            </li>
-          </ul>
-        </div>
-
+        </article>
       </div>
     </div>
   </section>
@@ -540,6 +580,9 @@
             <span class="skill-pill">NLP</span>
             <span class="skill-pill">LLMs</span>
             <span class="skill-pill">RAG</span>
+            <span class="skill-pill">Generative AI</span>
+            <span class="skill-pill">Agentic AI</span>
+            <span class="skill-pill">PydanticAI</span>
             <span class="skill-pill">Prompt Engineering</span>
             <span class="skill-pill">Pandas</span>
             <span class="skill-pill">NumPy</span>
@@ -563,6 +606,8 @@
             <span class="skill-pill">PostgreSQL</span>
             <span class="skill-pill">Tailwind CSS</span>
             <span class="skill-pill">Git</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Stripe</span>
             <span class="skill-pill">VPS Deployment</span>
           </div>
         </div>
@@ -595,7 +640,7 @@
           <span class="section-label">Let's Talk</span>
           <h2 class="section-title">Get In Touch</h2>
           <p class="contact-text">
-            Always happy to connect and discuss AI Engineering, Machine Learning, and software engineering opportunities.
+            Always happy to connect about AI Engineering roles, Machine Learning, research collaborations, and MS program or scholarship opportunities.
           </p>
           <a href="mailto:umair.akramcs@gmail.com" class="btn btn-primary contact-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
